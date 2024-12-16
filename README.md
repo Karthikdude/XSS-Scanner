@@ -69,7 +69,7 @@ The **XSS-Scanner** is a powerful tool designed to detect **Cross-Site Scripting
 
 ### Scan a Single URL
 ```bash
-python xss_scanner.py
+python xss.py
 ```
 1. Select the **Single URL** scan option.
 2. Enter the URL to scan.
@@ -78,7 +78,7 @@ python xss_scanner.py
 1. Prepare a `.txt` file containing URLs (one per line).
 2. Run the script and select the **File Scan** option:
    ```bash
-   python xss_scanner.py
+   python xss.py
    ```
 3. Provide the path to your `.txt` file.
 
