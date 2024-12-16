@@ -51,7 +51,7 @@ The **XSS-Scanner** is a powerful tool designed to detect **Cross-Site Scripting
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/XSS-Scanner.git
+   git clone https://github.com/Karthikdude/XSS-Scanner
    cd XSS-Scanner
    ```
 2. Install dependencies:
