@@ -129,6 +129,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 - 🖥️ Portfolio: [karthik-s-sathyan.vercel.app](https://karthik-s-sathyan.vercel.app)
 - 💻 GitHub: [Karthikdude](https://github.com/Karthikdude)
-```
+
 
 
