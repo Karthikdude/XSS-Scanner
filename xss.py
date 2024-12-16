@@ -13,7 +13,7 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 # ASCII Banner with Emojis
 ascii_banner = r"""
- 
+
  __   __ _____ _____    _____                                 
  \ \ / // ____/ ____|  / ____|                                
   \ V /| (___| (___   | (___   ___ __ _ _ __  _ __   ___ _ __ 
@@ -21,7 +21,7 @@ ascii_banner = r"""
   / . \ ____) |___) |  ____) | (_| (_| | | | | | | |  __/ |   
  /_/ \_\_____/_____/  |_____/ \___\__,_|_| |_|_| |_|\___|_|   
                                                               
-           BY KARTHIK S SATHYAN                                                   
+                  BY KARTHIK S SATHYAN                                                         
 
 """
 
@@ -56,18 +56,16 @@ def test_payloads(url, payloads, method="GET", data=None):
     for i, payload in enumerate(payloads):
         if method.upper() == "POST":
             for key in data.keys():
-                data[key] = data[key] + payload if data[key] else payload
+                data[key] = payload
             response = requests.post(url, data=data, verify=False)
+            injection_url = url  # For display purposes
         else:
             parsed_url = re.split(r'[?&]', url)
             if len(parsed_url) > 1:
                 params = parsed_url[1:]
                 for param in params:
-                    key, value = param.split('=')
-                    if value:
-                        injection_url = f"{url.replace(param, f'{key}={value}{payload}')}"
-                    else:
-                        injection_url = f"{url.replace(param, f'{key}={payload}')}"
+                    key = param.split('=')[0]
+                    injection_url = f"{url.replace(param, f'{key}={payload}')}"
             else:
                 injection_url = f"{url}?q={payload}"
             response = requests.get(injection_url, verify=False)
@@ -138,7 +136,7 @@ def collect_urls_from_wayback(domain):
         urls = result.stdout.splitlines()
         return urls
     except FileNotFoundError:
-        print("❌ waybackurls tool not found. Please install it using 'go get -u github.com/tomnomnom/waybackurls'.")
+        print("❌ waybackurls tool not found. Please install it using 'go get -u github.com/tomnomnob/waybackurls'.")
         return []
 
 def filter_xss_vulnerable_urls(urls):
@@ -186,6 +184,9 @@ def main():
             print("❌ No URLs found from Wayback Machine.")
     else:
         print("❌ Invalid choice. Please enter '1', '2', or '3'.")
+
+    print("Scan complete")
+    sys.exit(0)
 
 if __name__ == "__main__":
     main()
