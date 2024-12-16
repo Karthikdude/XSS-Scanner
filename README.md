@@ -1,4 +1,4 @@
-```markdown
+
 # XSS-Scanner
 
 ![XSS-Scanner Banner](https://via.placeholder.com/800x200?text=XSS-Scanner+by+Karthik+S+Sathyan)
